@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: Gateway
+  main:
+    web-application-type: reactive
+  # Configuration des routes du Gateway
+  cloud:
+    gateway:
+      routes:
+        # Route pour le StudentService
+        - id: service-student
+          uri: lb://service-student
+          predicates:
+            - Path=/api/students/**
+
+        # Route pour le SchoolService
+        - id: service-school
+          uri: lb://service-school
+          predicates:
+            - Path=/api/schools/**
+server:
+  port: 8088
+eureka:
+  client:
+    service-url:
+      defaultZone: 'http://localhost:8761/eureka'
+    register-with-eureka: true
+    fetch-registry: true

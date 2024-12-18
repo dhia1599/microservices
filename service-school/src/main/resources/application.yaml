@@ -10,9 +10,14 @@ spring:
     password: dhia
   jpa:
     open-in-view: false
+    show-sql: true
     hibernate:
       ddl-auto: 'update'
 eureka:
   client:
     service-url:
       defaultZone: 'http://localhost:8761/eureka'
+  instance:
+    prefer-ip-adress: true
+    ip-adress: 127.0.0.1
+    hostname: localhost
