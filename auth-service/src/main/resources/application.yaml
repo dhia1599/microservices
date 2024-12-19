@@ -1,16 +1,15 @@
 server:
-  port: 8081
+  port: 8089
 spring:
   application:
-    name: service-school
+    name: auth-service
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/school_db
+    url: jdbc:postgresql://localhost:5432/users_db
     username: postgres
     password: dhia
   jpa:
     open-in-view: false
-    show-sql: true
     hibernate:
       ddl-auto: 'update'
 eureka:
@@ -21,3 +20,6 @@ eureka:
     prefer-ip-adress: true
     ip-adress: 127.0.0.1
     hostname: localhost
+jwt:
+  secret: 'vFFrdZ7k6Ng6R6Qi1WGn4ZIlg92d+a/relMM+IbATXDz2PNrzxqyBofiiIpfFuam'
+  expiration: 3600000
