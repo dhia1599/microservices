@@ -1,3 +1,5 @@
+server:
+  port: 8088
 spring:
   application:
     name: Gateway
@@ -18,8 +20,12 @@ spring:
           uri: lb://service-school
           predicates:
             - Path=/api/schools/**
-server:
-  port: 8088
+
+        # Route pour le AuthService
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/users/**
 eureka:
   client:
     service-url:
