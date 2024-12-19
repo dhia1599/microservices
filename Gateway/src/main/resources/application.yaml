@@ -14,18 +14,26 @@ spring:
           uri: lb://service-student
           predicates:
             - Path=/api/students/**
+          filters:
+            - name: AuthFilter
 
         # Route pour le SchoolService
         - id: service-school
           uri: lb://service-school
           predicates:
             - Path=/api/schools/**
+          filters:
+            - name: AuthFilter
 
         # Route pour le AuthService
         - id: auth-service
           uri: lb://auth-service
           predicates:
             - Path=/api/users/**
+            - Path=/api/auth/**
+      discovery:
+        locator:
+          enable: true
 eureka:
   client:
     service-url:

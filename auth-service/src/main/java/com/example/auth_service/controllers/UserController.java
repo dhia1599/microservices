@@ -2,9 +2,7 @@ package com.example.auth_service.controllers;
 
 import com.example.auth_service.dtos.CreatedUserDto;
 import com.example.auth_service.dtos.UserDto;
-import com.example.auth_service.entities.UserEntity;
 import com.example.auth_service.services.UserService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
